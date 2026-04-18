@@ -42,5 +42,8 @@ USER root
 RUN chmod +x /opt/hermes/docker/entrypoint.sh
 
 ENV HERMES_HOME=/opt/data
+# Add virtualenv bin to PATH so hermes command is available when entering container
+ENV PATH=/opt/hermes/.venv/bin:$PATH
+
 VOLUME [ "/opt/data" ]
 ENTRYPOINT [ "/opt/hermes/docker/entrypoint.sh" ]
